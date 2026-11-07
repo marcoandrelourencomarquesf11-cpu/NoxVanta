@@ -1,0 +1,15 @@
+NOXVANTA — correções de compatibilidade com a base de dados existente
+
+- Resultados: a aplicação passa a usar matches.result_for e matches.result_against.
+- Plantel: removidas referências a profiles.country, agent_role, avatar_key e status, que não existem na estrutura atual confirmada.
+- Candidaturas: o formulário e a gestão passam a usar applications.country, current_rank, peak_rank, main_role, agents e competitive_experience.
+- Migração 04: corrigidas as permissões INSERT para os nomes reais das colunas; removidas políticas antigas adicionais para impedir submissões anónimas após a ativação de contas.
+- Não executar schema.sql. Não elimina perfis, utilizadores, candidaturas nem resultados.
+
+ORDEM SQL (se ainda não foram aplicadas):
+1) 20261107_01_add_extended_roles.sql
+2) 20261107_02_role_permissions_and_operations.sql
+3) 20261107_03_fix_recruitment_visibility.sql
+4) 20261107_04_accounts_membership.sql (versão corrigida neste ZIP)
+
+A migração 01 deve terminar antes de iniciar a 02. Executar cada ficheiro separadamente no SQL Editor do Supabase.
